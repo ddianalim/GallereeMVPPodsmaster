@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="50" id="2AG-zN-ohh">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="Search Table View Cell" selectionStyle="default" indentationWidth="10" reuseIdentifier="Search Table View Cell" rowHeight="50" id="2AG-zN-ohh">
                                         <rect key="frame" x="0.0" y="28" width="600" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2AG-zN-ohh" id="gGJ-3O-ktR">
@@ -216,24 +216,6 @@
             </objects>
             <point key="canvasLocation" x="1083" y="-123"/>
         </scene>
-        <!--Photo View Controller-->
-        <scene sceneID="d7H-x3-Qly">
-            <objects>
-                <viewController title="Photo View Controller" id="Mla-hI-DZW" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ZdN-pX-jNt"/>
-                        <viewControllerLayoutGuide type="bottom" id="p1C-DH-snJ"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="azX-1W-hoC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="g2V-3y-Igm" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1771" y="-123"/>
-        </scene>
         <!--View Controller-->
         <scene sceneID="lN0-sK-Eav">
             <objects>
@@ -322,7 +304,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Otr-zV-ltQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="WO6-6c-DlU" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1784" y="-820"/>
+            <point key="canvasLocation" x="1784" y="-775"/>
         </scene>
         <!--New Post View Controller-->
         <scene sceneID="90j-PF-ajJ">
@@ -390,19 +372,25 @@
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="YTk-nt-cla"/>
                                     <constraint firstAttribute="width" constant="100" id="lTP-qp-KZw"/>
                                 </constraints>
-                                <state key="normal" image="addpicbutton"/>
+                                <state key="normal" image="pluspic"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="18W-bT-l3y"/>
                                         <exclude reference="YTk-nt-cla"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="butLibraryAction:" destination="lGY-YJ-z0g" eventType="touchUpInside" id="HPi-Ms-sfj"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Title" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UBh-an-4rI">
                                 <rect key="frame" x="20" y="79" width="560" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="u9O-Ad-RoJ">
+                                <rect key="frame" x="20" y="124" width="100" height="100"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -411,6 +399,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="0nK-gh-U37" secondAttribute="trailing" constant="439" id="GAw-xe-PoE"/>
                             <constraint firstItem="UBh-an-4rI" firstAttribute="leading" secondItem="Mvn-ts-gz0" secondAttribute="leadingMargin" id="Hyf-TE-Zeh"/>
                             <constraint firstItem="14a-td-azp" firstAttribute="centerX" secondItem="Mvn-ts-gz0" secondAttribute="centerX" id="JM9-xH-Aps"/>
+                            <constraint firstItem="u9O-Ad-RoJ" firstAttribute="leading" secondItem="Mvn-ts-gz0" secondAttribute="leadingMargin" id="Jmp-Te-W0T"/>
                             <constraint firstItem="8pi-U3-LoY" firstAttribute="leading" secondItem="Mvn-ts-gz0" secondAttribute="leading" id="MhF-Zu-BrE"/>
                             <constraint firstItem="8pi-U3-LoY" firstAttribute="top" secondItem="TlW-1x-bAl" secondAttribute="bottom" id="NPM-sk-wXi"/>
                             <constraint firstItem="0nK-gh-U37" firstAttribute="leading" secondItem="Mvn-ts-gz0" secondAttribute="leadingMargin" id="Neo-1r-yFe"/>
@@ -422,12 +411,15 @@
                             <constraint firstItem="APb-Ep-KML" firstAttribute="top" secondItem="UBh-an-4rI" secondAttribute="bottom" constant="15" id="fOf-xq-Vw9"/>
                             <constraint firstItem="UBh-an-4rI" firstAttribute="leading" secondItem="Mvn-ts-gz0" secondAttribute="leadingMargin" id="g3l-58-g3a"/>
                             <constraint firstItem="14a-td-azp" firstAttribute="leading" secondItem="Mvn-ts-gz0" secondAttribute="leadingMargin" id="iaF-vs-ANH"/>
+                            <constraint firstItem="APb-Ep-KML" firstAttribute="leading" secondItem="u9O-Ad-RoJ" secondAttribute="trailing" constant="15" id="jpW-JD-Woc"/>
                             <constraint firstAttribute="trailingMargin" secondItem="0nK-gh-U37" secondAttribute="trailing" id="l8m-xW-9rY"/>
+                            <constraint firstItem="u9O-Ad-RoJ" firstAttribute="top" secondItem="UBh-an-4rI" secondAttribute="bottom" constant="15" id="lCo-xR-ZIN"/>
                             <constraint firstItem="14a-td-azp" firstAttribute="top" secondItem="UBh-an-4rI" secondAttribute="bottom" constant="15" id="lar-TJ-hhd"/>
                             <constraint firstItem="APb-Ep-KML" firstAttribute="leading" secondItem="14a-td-azp" secondAttribute="trailing" constant="15" id="m1W-pZ-Ep8"/>
                             <constraint firstItem="UBh-an-4rI" firstAttribute="trailing" secondItem="Mvn-ts-gz0" secondAttribute="trailingMargin" id="nS5-4t-zr3"/>
                             <constraint firstItem="8pi-U3-LoY" firstAttribute="leading" secondItem="Mvn-ts-gz0" secondAttribute="leadingMargin" id="nmd-wd-MqW"/>
                             <constraint firstItem="0nK-gh-U37" firstAttribute="top" secondItem="14a-td-azp" secondAttribute="bottom" constant="15" id="prG-JV-CCn"/>
+                            <constraint firstItem="0nK-gh-U37" firstAttribute="top" secondItem="u9O-Ad-RoJ" secondAttribute="bottom" constant="15" id="reS-bD-Skb"/>
                             <constraint firstItem="UBh-an-4rI" firstAttribute="top" secondItem="8pi-U3-LoY" secondAttribute="bottom" constant="15" id="weS-7G-oGU"/>
                         </constraints>
                         <variation key="default">
@@ -441,11 +433,14 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="u9O-Ad-RoJ" id="oPR-Tz-xS7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qYH-fy-tOp" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="XGY-ad-82K" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2508" y="-123"/>
+            <point key="canvasLocation" x="1784" y="-123"/>
         </scene>
         <!--Photo View Controller-->
         <scene sceneID="DEg-K6-Yk7">

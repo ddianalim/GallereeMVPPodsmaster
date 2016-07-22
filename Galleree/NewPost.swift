@@ -9,8 +9,43 @@
 import Foundation
 import UIKit
 
-class NewPostViewController: UIViewController {
-
+class NewPostViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    @IBOutlet weak var imageView: UIImageView!
+    
+    let imagePicker = UIImagePickerController()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        imagePicker.delegate = self
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    // MARK: - Capture Image
+    
+    @IBAction func butLibraryAction(sender: AnyObject) {
+        imagePicker.allowsEditing = false
+        imagePicker.sourceType = .PhotoLibrary
+        
+        imagePicker.modalPresentationStyle = UIModalPresentationStyle.Popover
+        imagePicker.popoverPresentationController?.sourceView = imageView
+        self.presentViewController(imagePicker, animated: true, completion: nil)
+    }
+    
+    // Mark: - Update Image View
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage{
+            imageView.contentMode = .ScaleAspectFit
+            imageView.image = pickedImage
+        }
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let identifier = segue.identifier {
             if identifier == "Cancel" {
@@ -21,4 +56,4 @@ class NewPostViewController: UIViewController {
         }
     }
 }
-
+    
