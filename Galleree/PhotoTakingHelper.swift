@@ -10,7 +10,7 @@ import UIKit
 
 class PhotoTakingHelper: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    @IBOutlet weak var imageVIew: UIImageView!
+    @IBOutlet weak var imageView: UIImageView!
     let imagePicker = UIImagePickerController()
     
     override func viewDidLoad() {
@@ -31,15 +31,15 @@ class PhotoTakingHelper: UIViewController, UIImagePickerControllerDelegate, UINa
         imagePicker.sourceType = .PhotoLibrary
         
         imagePicker.modalPresentationStyle = UIModalPresentationStyle.Popover
-        imagePicker.popoverPresentationController?.sourceView = imageVIew
+        imagePicker.popoverPresentationController?.sourceView = imageView
         self.presentViewController(imagePicker, animated: true, completion: nil)
     }
     
     // Mark: - Update Image View
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage{
-            imageVIew.contentMode = .ScaleAspectFit
-            imageVIew.image = pickedImage
+            imageView.contentMode = .ScaleAspectFit
+            imageView.image = pickedImage
         }
         dismissViewControllerAnimated(true, completion: nil)
     }

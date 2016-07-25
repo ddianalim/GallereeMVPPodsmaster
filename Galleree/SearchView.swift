@@ -8,6 +8,8 @@
 
 import UIKit
 
+class SearchView : UIViewController {}
+    
 public protocol SearchTableViewDataSource : NSObjectProtocol {
     func searchPropertyName() -> String
 }
@@ -107,3 +109,4 @@ extension SearchTableView: UISearchResultsUpdating {
         reloadData()
     }
 }
+
