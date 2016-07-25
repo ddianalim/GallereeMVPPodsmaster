@@ -7,6 +7,7 @@ target 'Galleree' do
 
   pod ‘Parse’
   pod ‘ParseUI’
+  pod 'Bond'
 
   target 'GallereeTests' do
     inherit! :search_paths

@@ -110,12 +110,12 @@
 		31656E831D35715B00D03986 = {
 			isa = PBXGroup;
 			children = (
+				AE8CD005CA77655AE7D353C6 /* Frameworks */,
 				31656E8E1D35715B00D03986 /* Galleree */,
 				31656EA31D35715B00D03986 /* GallereeTests */,
 				31656EAE1D35715B00D03986 /* GallereeUITests */,
 				31656E8D1D35715B00D03986 /* Products */,
 				77B0861D0E57E517AE90DA7D /* Pods */,
-				AE8CD005CA77655AE7D353C6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
